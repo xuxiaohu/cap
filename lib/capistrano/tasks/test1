@@ -1,0 +1,6 @@
+server 'example.com', roles: [:web, :app]
+server 'example.org', roles: [:db, :workers]
+desc "Report Uptimes"
+task :uptime do
+  puts "-------"
+end

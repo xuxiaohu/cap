@@ -5,9 +5,9 @@ set :stage, :production
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{root@testcap.com}
-role :web, %w{root@testcap.com}
-role :db,  %w{root@testcap.com}
+role :app, %w{xuxiaohu@testcap.com}
+role :web, %w{xuxiaohu@testcap.com}
+role :db,  %w{xuxiaohu@testcap.com}
 
 
 # Extended Server Syntax
@@ -16,7 +16,14 @@ role :db,  %w{root@testcap.com}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'testcap.com', user: 'root', roles: %w{web app}
+server 'testcap.com', user: 'xuxiaohu', roles: %w{web app},
+  ssh_options: {
+    user: 'xuxiaohu', # overrides user setting above
+    keys: '~/.ssh/id_rsa',
+    forward_agent: true,
+    auth_methods: %w(publickey password)
+    # password: 'please use keys'
+  }
 
 
 # Custom SSH Options

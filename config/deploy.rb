@@ -37,7 +37,7 @@ set :rvm_ruby_version, '2.0.0-p247@rails4'
 
 namespace :deploy do
   set :unicorn_config, "#{current_path}/config/unicorn.rb"
-  set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
+  set :unicorn_pid, "#{current_path}/tmp/pids/.unicorn.pid"
 
   desc 'Restart application'
   task :restart do
